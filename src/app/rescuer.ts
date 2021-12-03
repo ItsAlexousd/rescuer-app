@@ -4,4 +4,5 @@ export interface Rescuer {
     lastName: string;
     jobTitle: string;
     imageUrl: string;
+    rescues: number;
 }

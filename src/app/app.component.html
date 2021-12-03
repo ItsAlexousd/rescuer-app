@@ -1,0 +1,110 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Les Sauveteurs Dunkerquois</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link">Ajouter un Sauveteur <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input type="search" (ngModelChange)="searchRescuers(key.value)" #key="ngModel" ngModel
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher un Sauveteur" required>
+    </form>
+  </div>
+</nav>
+
+<div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let rescuer of rescuers" class="col-md-6 col-xl-3">
+      <div class="card m-b-30">
+        <div class="card-body row">
+          <div class="col-6">
+            <a href=""><img src="{{rescuer?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+          </div>
+          <div class="col-6 card-title align-self-center mb-0">
+            <h5>{{rescuer?.firstName}} {{rescuer?.lastName}}</h5>
+            <p class="m-0">{{rescuer?.jobTitle}}</p>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Sauvetages : {{rescuer?.rescues}}</li>
+        </ul>
+        <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+            <a href="#" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">Modifier</a>
+            <a href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Rescuer Modal
+<div class="modal fade" id="addRescuerModal" tabindex="-1" role="dialog" aria-labelledby="addRescuerModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addRescuerModalLabel">Ajouter un Sauveteur</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddRescuer(addForm)">
+          <div class="form-group">
+            <label for="firstName">Prénom</label>
+            <input type="text" ngModel name="firstName" class="form-control" id="firstName" placeholder="Prénom" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Nom</label>
+            <input type="text" ngModel name="lastName" class="form-control" id="lastName" placeholder="Nom" required>
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Poste</label>
+            <input type="text" ngModel name="jobTitle" class="form-control" id="jobTitle" placeholder="Poste" required>
+          </div>
+          <div class="form-group">
+            <label for="imageUrl">URL Photo</label>
+            <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="URL Photo" required>
+          </div>
+          <div class="form-group">
+            <label for="rescues">Nombre de sauvetages</label>
+            <input type="number" ngModel name="rescues" class="form-control" id="rescues" placeholder="Sauvetages" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-rescuer-form" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Sauvegarder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+Delete Modal
+<div class="modal fade" id="deleteRescuerModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModelLabel">Supprimer le Sauveteur</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Voulez-vous vraiment supprimer le Sauveteur {{deleteRescuer?.firstName}} {{deleteRescuer?.lastName}} ?</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+          <button (click)="onDeleteRescuer(deleteRescuer?.id)" class="btn btn-danger" data-dismiss="modal">Oui</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
